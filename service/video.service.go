@@ -12,6 +12,15 @@ type videoService struct {
 	videos []entity.Video
 }
 
-func New() videoService {
-	// return v
+func New() VideoService {
+	return &videoService{}
+}
+
+func (s *videoService) Save(v entity.Video) entity.Video{
+	s.videos = append(s.videos, v);
+	return v
+}
+
+func (s *videoService) FindAll() []entity.Video{
+	return s.videos;
 }
